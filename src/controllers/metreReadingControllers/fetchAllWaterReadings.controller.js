@@ -1,7 +1,7 @@
 import { apiResponse, asyncHandler, WaterReading } from "../allImports.js";
 
 const fetchAllWaterReadings = asyncHandler(async (request, response) => {
-    const waterReadings = await WaterReading.find({});
+    const waterReadings = await WaterReading.find({}).sort({createdAt: -1});
 
     return response.status(200)
     .json(
